@@ -26,31 +26,31 @@ public class Main {
          Color[][] colorGrid = new Color[row][col];
          Random random = new Random();
 
-         Arrays.setAll(colorGrid, x -> {
-             Arrays.setAll(colorGrid[x], y -> new Color(random.nextInt(255),
-                     random.nextInt(255), random.nextInt(255)));
-             return colorGrid[x];
-         });
+//         Arrays.setAll(colorGrid, x -> {
+//             Arrays.setAll(colorGrid[x], y -> new Color(random.nextInt(255),
+//                     random.nextInt(255), random.nextInt(255)));
+//             return colorGrid[x];
+//         });
 
-//         colorGrid[0][0] = new Color(0);
-//         colorGrid[0][1] = new Color(0);
-//         colorGrid[0][2] = new Color(0);
-//
-//         colorGrid[1][0] = new Color(0);
-//         colorGrid[1][1] = new Color(255);
-//         colorGrid[1][2] = new Color(0);
-//
-//         colorGrid[2][0] = new Color(255);
-//         colorGrid[2][1] = new Color(255);
-//         colorGrid[2][2] = new Color(255);
-//
-//
-//         for(int p=0; p<colorGrid.length; p++){
-//             for(int q=0; q< colorGrid[p].length; q++){
-//                 System.out.print(colorGrid[p][q] + " ");
-//             }
-//             System.out.println();
-//         }
+         colorGrid[0][0] = new Color(0);
+         colorGrid[0][1] = new Color(0);
+         colorGrid[0][2] = new Color(0);
+
+         colorGrid[1][0] = new Color(0);
+         colorGrid[1][1] = new Color(255);
+         colorGrid[1][2] = new Color(0);
+
+         colorGrid[2][0] = new Color(255);
+         colorGrid[2][1] = new Color(255);
+         colorGrid[2][2] = new Color(255);
+
+
+         for(int p=0; p<colorGrid.length; p++){
+             for(int q=0; q< colorGrid[p].length; q++){
+                 System.out.print(colorGrid[p][q] + " ");
+             }
+             System.out.println();
+         }
 
          return colorGrid;
     }
@@ -69,8 +69,7 @@ public class Main {
                 COUNT = 0;
 
                 if (j + 1 < cols)
-                    BFS(colorGrid[i][j], colorGrid[i][j + 1],
-                            i, j, colorGrid);
+                    BFS(colorGrid[i][j], colorGrid[i][j + 1], i, j, colorGrid);
 
                 if (COUNT >= currentMax)
                 {
@@ -81,8 +80,7 @@ public class Main {
                 COUNT = 0;
 
                 if (i + 1 < rows)
-                    BFS(colorGrid[i][j],
-                            colorGrid[i + 1][j], i, j, colorGrid);
+                    BFS(colorGrid[i][j], colorGrid[i + 1][j], i, j, colorGrid);
 
                 if (COUNT >= currentMax)
                 {
@@ -94,11 +92,11 @@ public class Main {
         printResult(currentMax, rows, cols);
     }
 
-    static boolean isValid(int x, int y, Color key, Color input[][])
+    static boolean isValid(int x, int y, Color key, Color colorGrid[][])
     {
-        if (x < input.length && y < input[0].length && x >= 0 && y >= 0)
+        if (x < colorGrid.length && y < colorGrid[0].length && x >= 0 && y >= 0)
         {
-            if (visited[x][y] == null && input[x][y] == key)
+            if (visited[x][y] == null && colorGrid[x][y].equals(key))
                 return true;
             else
                 return false;
@@ -138,7 +136,7 @@ public class Main {
         {
             for (int j = 0; j < colorGrid[0].length; j++)
             {
-                if (visited[i][j] != null && colorGrid[i][j] == key)
+                if (visited[i][j] != null && colorGrid[i][j].equals(key))
                     result[i][j] = visited[i][j];
                 else
                     result[i][j] = null;
