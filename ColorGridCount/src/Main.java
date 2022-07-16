@@ -26,31 +26,31 @@ public class Main {
          Color[][] colorGrid = new Color[row][col];
          Random random = new Random();
 
-//         Arrays.setAll(colorGrid, x -> {
-//             Arrays.setAll(colorGrid[x], y -> new Color(random.nextInt(255),
-//                     random.nextInt(255), random.nextInt(255)));
-//             return colorGrid[x];
-//         });
+         Arrays.setAll(colorGrid, x -> {
+             Arrays.setAll(colorGrid[x], y -> new Color(random.nextInt(255),
+                     random.nextInt(255), random.nextInt(255)));
+             return colorGrid[x];
+         });
 
-         colorGrid[0][0] = new Color(0);
-         colorGrid[0][1] = new Color(0);
-         colorGrid[0][2] = new Color(0);
-
-         colorGrid[1][0] = new Color(0);
-         colorGrid[1][1] = new Color(255);
-         colorGrid[1][2] = new Color(0);
-
-         colorGrid[2][0] = new Color(255);
-         colorGrid[2][1] = new Color(255);
-         colorGrid[2][2] = new Color(255);
-
-
-         for(int p=0; p<colorGrid.length; p++){
-             for(int q=0; q< colorGrid[p].length; q++){
-                 System.out.print(colorGrid[p][q] + " ");
-             }
-             System.out.println();
-         }
+//         colorGrid[0][0] = new Color(0);
+//         colorGrid[0][1] = new Color(0);
+//         colorGrid[0][2] = new Color(0);
+//
+//         colorGrid[1][0] = new Color(0);
+//         colorGrid[1][1] = new Color(255);
+//         colorGrid[1][2] = new Color(0);
+//
+//         colorGrid[2][0] = new Color(255);
+//         colorGrid[2][1] = new Color(255);
+//         colorGrid[2][2] = new Color(255);
+//
+//
+//         for(int p=0; p<colorGrid.length; p++){
+//             for(int q=0; q< colorGrid[p].length; q++){
+//                 System.out.print(colorGrid[p][q] + " ");
+//             }
+//             System.out.println();
+//         }
 
          return colorGrid;
     }
